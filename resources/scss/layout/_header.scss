@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom-color: var(--gray-400);
+  }
+}
+
+.header-logo {
+  height: 50px;
+
+  filter: grayscale(1);
+  transition: filter 200ms ease-in-out;
+}
+
+.header-title {
+  opacity: 0;
+  margin-left: var(--spacing-lg);
+
+  font-weight: 300;
+  font-size: 20px;
+
+  transition: opacity 200ms ease-in-out;
+
+  > a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.header:hover {
+  .header-logo {
+    filter: grayscale(0);
+  }
+
+  .header-title {
+    opacity: 1;
+  }
+}
+
+.header-actions {
+  margin-left: auto;
+}
+
+.header-settings-icon {
+  cursor: pointer
+}

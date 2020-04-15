@@ -1,0 +1,15 @@
+.field {
+  width: 150px;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  outline: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--white);
+
+  &-large {
+    width: auto;
+    height: 150px;
+  }
+}

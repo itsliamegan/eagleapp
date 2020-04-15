@@ -1,0 +1,28 @@
+.button {
+  height: 40px;
+  padding: 0 var(--spacing-md);
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  color: inherit;
+  background-color: var(--gray-300);
+
+  cursor: pointer;
+
+  transition: filter 200ms ease-in-out;
+
+  &-blue {
+    color: var(--white);
+    background-color: var(--blue);
+    border: 1px solid var(--blue-600);
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+  }
+}

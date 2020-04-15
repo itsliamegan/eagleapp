@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="admin">
+        <h2 class="admin-section-title">Generate Normal Schedules</h2>
+        <form
+            data-controller="form"
+            data-action="form#submit"
+            data-form-submitting-text="Generating..."
+            action="/admin/schedules/normal"
+            method="POST"
+        >
+            <div class="admin-section">
+                <label>Start Date</label>
+                <input class="field" name="startDate" required type="date">
+
+                <label>Start Day</label>
+                <select class="field" required name="startDayId">
+                    <option selected disabled></option>
+                    {% for day in days %}
+                        <option value="{{ day.id }}">{{ day.label }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Stop Date</label>
+                <input class="field" name="stopDate" required type="date">
+
+                <button class="button admin-button" type="submit" data-target="form.submitButton">Generate</button> 
+            </div>
+        </form>
+
+        <h2 class="admin-section-title">Set Days Off</h2>
+        <form
+            data-controller="form"
+            data-action="form#submit"
+            data-form-submitting-text="Saving..."
+            action="/admin/vacations"
+            method="POST"
+        >
+            <div class="admin-section">
+                <button class="button admin-button" type="submit" data-target="form.submitButton">Save</button>
+            </div>
+        </form>
+
+        <h2 class="admin-section-title">Set Schedule Overrides</h2>
+        <form
+            data-controller="form"
+            data-action="form#submit"
+            data-form-submitting-text="Saving..."
+            action="/admin/schedules"
+            method="POST"
+        >
+            <div class="admin-section">
+                <button class="button admin-button" type="submit" data-target="form.submitButton">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

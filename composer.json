@@ -1,0 +1,33 @@
+{
+    "name": "eagleapp/eagleapp",
+    "type": "project",
+    "license": "UNLICENSED",
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/liam-egan/janus"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/",
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyze": "phan",
+        "test": "phpunit tests/"
+    },
+    "require": {
+        "google/apiclient": "^2.0@dev",
+        "janus/framework": "dev-master"
+    },
+    "require-dev": {
+        "phan/phan": "dev-master",
+        "phpunit/phpunit": "^8.4@dev"
+    }
+}
