@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main class="login" data-controller="login">
+        {{ asset('eagle.png', { class: 'login-logo' }) }}
+
+        <h1 class="login-title">eagleApp</h1>
+
+        <button
+            class="button button-blue"
+            id="login-button"
+            data-action="login#updateButton"
+            data-target="login.loginButton"
+        >
+            Login
+        </button>
+    </main>
+
+{% endblock %}

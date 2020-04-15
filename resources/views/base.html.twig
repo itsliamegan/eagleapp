@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>{{ title | default('eagleApp') }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="turbolinks-cache-control" content="no-cache">
+        <link rel="shortcut icon" href="/public/favicon.ico">
+
+        {{ asset('normalize.css') }}
+        {{ asset('app.css') }}
+        {{ asset('app.js') }}
+    </head>
+
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+
+</html>

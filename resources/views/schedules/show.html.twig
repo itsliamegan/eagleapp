@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+    <main class="schedule">
+        <h2 class="schedule-date">{{ title }}</h2>
+
+        <a class="schedule-arrow schedule-arrow-left" href="/schedules/{{ prev }}">
+            {{ asset('chevron-left.svg') }}
+        </a>
+
+        {% if isSchoolDay %}
+            {% set periods = schedule.periods %}
+            {% set courses = schedule.courses(current.student()) %}
+
+            <ul class="schedule-periods" style="--num-periods: {{ periods | length }};">
+                {% for period in periods %}
+                    {% set course = courses[loop.index0] %}
+
+                    <li
+                        class="schedule-period"
+                        style="--period-color: #{{ period.color }};
+                               --font-size: {{ period.name|length > 1 ? 32 : 48 }}px;"
+                    >
+                        {{ period.name | upper }}
+                        <span class="schedule-period-course">{{ course.name }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h2 class="schedule-day">{{ schedule.day.label }}</h2>
+
+        {% elseif isWeekend %}
+            <div class="schedule-message">
+                {{ asset('sun.png', { class: 'schedule-message-icon' }) }}
+                Have a great weekend!
+            </div>
+
+        {% elseif isDayOff %}
+            <div class="schedule-message">
+                {{ asset('sun.png', { class: 'schedule-message-icon' }) }}
+                Have a great day off!
+            </div>
+
+        {% endif %}
+
+        <a class="schedule-arrow schedule-arrow-right" href="/schedules/{{ next }}">
+            {{ asset('chevron-right.svg') }}
+        </a>
+    </main>
+
+{% endblock %}

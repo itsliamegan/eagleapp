@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="admin">
+        <h2 class="admin-section-title">Import Courses From Aspen</h2>
+        <form
+            data-controller="form"
+            data-action="form#submit"
+            data-form-submitting-text="Importing..."
+            data-form-redirect-to="/"
+            action="/import"
+            method="POST"
+        >
+            <div class="admin-section">
+                <p>Instructions:</p>
+                <ol>
+                    <li>Go to your schedule on Aspen</li>
+                    <li>Press and hold the "Control" key, and at the same time press the "A" key</li>
+                    <li>Right click and press "Copy"</li>
+                    <li>Come back to this page, right click in the box below, and press "Paste"</li>
+                    <li>Click the "Import" button at the bottom of this page</li>
+                </ol>
+
+                <video height="400" autoplay loop>
+                    <source src="/public/schedule.mp4" type="video/mp4">
+                </video>
+
+                <textarea class="field field-large" name="aspenSchedule" required></textarea>
+
+                <button class="button admin-button" type="submit" data-target="form.submitButton">Import</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

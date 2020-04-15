@@ -1,0 +1,157 @@
+.schedule {
+  display: grid;
+  grid-template-columns: 0.5fr 4fr 0.5fr;
+  grid-template-rows: 1fr 125px 1fr;
+  grid-template-areas:
+    '.      date    .'
+    'larrow today rarrow'
+    '.      day     .';
+
+  margin: auto 0;
+  width: 100%;
+
+  // The exact middle doesn't look like the middle, so move it slightly
+  // vertically.
+  transform: translateY(calc(-1.5 * var(--spacing-xl)));
+}
+
+.schedule-date {
+  grid-area: date;
+
+  margin: auto auto var(--spacing-lg) auto;
+
+  color: var(--gray);
+  font-weight: normal;
+}
+
+.schedule-arrow {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  text-decoration: none;
+
+  > img {
+    margin: auto;
+    height: 60%;
+  }
+
+  &-left {
+    grid-area: larrow;
+  }
+
+  &-right {
+    grid-area: rarrow;
+  }
+}
+
+.schedule-periods {
+  grid-area: today;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.schedule-period {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 125px;
+  height: 125px;
+  margin: 0 var(--spacing-md);
+  border-radius: var(--radius-sm);
+
+  color: var(--white);
+  background-color: var(--period-color);
+
+  font-weight: bold;
+  font-size: var(--font-size);
+
+  animation: zoomIn 500ms;
+  transition: transform 150ms ease-in-out;
+
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.schedule-period-course {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  opacity: 0;
+
+  background-color: rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+  font-weight: normal;
+  font-size: 14px;
+
+  transition: opacity 100ms ease-in-out;
+}
+
+.schedule-period:hover {
+  .schedule-period-course {
+    opacity: 1;
+  }
+}
+
+.schedule-message-icon {
+  width: 100px;
+  margin-right: var(--spacing-xxl);
+  
+  animation: rotate 20s infinite linear;
+}
+
+.schedule-message {
+  grid-area: today;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  font-size: 48px;
+  font-weight: normal;
+}
+
+.schedule-day {
+  grid-area: day;
+
+  margin: var(--spacing-lg) auto auto auto;
+
+  color: var(--gray);
+  font-weight: normal;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

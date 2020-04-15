@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page">
+        <header class="header" data-controller="header">
+            <a href="/">
+                {{ asset('eagle.png', { class: 'header-logo' }) }}
+            </a>
+
+            <h1 class="header-title">
+                <a href="/">eagleApp</a>
+            </h1>
+
+            <div class="header-actions menu-anchor" data-controller="menu">
+                {{ asset('settings.svg', { class: 'header-settings-icon', 'data-action': 'click->menu#toggle' })}}
+
+                <div class="header-settings menu" data-target="menu.menu">
+                    <span class="menu-item menu-item-non-interactive">{{ current.student().name }}</span>
+
+                    <a class="menu-item" href="/import">Aspen Import</a>
+                    
+                    {% if current.student().is_admin %}
+                        <a class="menu-item" href="/admin">Admin</a>
+                    {% endif %}
+
+                    <a class="menu-item" href="mailto:stat@barringtonschools.org?subject=eagleApp Help">Help</a>
+
+                    <button class="menu-item" data-action="header#logout">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

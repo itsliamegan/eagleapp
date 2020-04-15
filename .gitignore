@@ -1,0 +1,11 @@
+vendor/
+node_modules/
+.vagrant/
+.phpintel/
+.cache/
+
+*.cache
+*.log
+.env
+adminer.php
+assets.json

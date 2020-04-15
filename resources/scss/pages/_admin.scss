@@ -1,0 +1,25 @@
+.admin {
+  width: 60%;
+  margin: var(--spacing-xl) auto 0 auto;
+}
+
+.admin-section-title {
+  margin: var(--spacing-sm) 0;
+
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.admin-section {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border);
+}
+
+.admin-button {
+  margin: 0 auto;
+}
